@@ -1,6 +1,6 @@
-﻿namespace Dotz.Programa.Fidelidade.Domain.Models
+﻿namespace Dotz.Programa.Fidelidade.Domain.Requests
 {
-    public class UserAccountModel
+    public class UserAccountRequest
     {
         public string Name { get; set; }
         public string Email { get; set; }

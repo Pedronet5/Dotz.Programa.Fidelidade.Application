@@ -12,7 +12,7 @@ namespace Dotz.Programa.Fidelidade.Domain.Commands
 
         private ValidationResult ValidationResult { get; set; }
 
-
+        [System.Obsolete]
         public bool IsValid()
         {
             ValidationResult = new DigitalAccountValidation().Validate(this);
@@ -26,6 +26,7 @@ namespace Dotz.Programa.Fidelidade.Domain.Commands
 
     public class DigitalAccountValidation : AbstractValidator<UserAccountCommand>
     {
+        [System.Obsolete]
         public DigitalAccountValidation()
         {
             ValidatorOptions.LanguageManager.Culture = new CultureInfo("en");

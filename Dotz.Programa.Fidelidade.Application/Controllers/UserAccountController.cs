@@ -1,5 +1,5 @@
 ﻿using Dotz.Programa.Fidelidade.Domain.Commands;
-using Dotz.Programa.Fidelidade.Domain.Models;
+using Dotz.Programa.Fidelidade.Domain.Requests;
 using Dotz.Programa.Fidelidade.Domain.Interfaces;
 using Dotz.Programa.Fidelidade.Domain.Queries;
 using Dotz.Programa.Fidelidade.Infrastructure.Services;
@@ -57,7 +57,7 @@ namespace Dotz.Programa.Fidelidade.Application.Controllers
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(typeof(GetUserAccountQueryResult), (int)StatusCodes.Status200OK)]
         [Authorize(Roles = "admin,manager")]
-        public IActionResult PostUserAccount([FromQuery] UserAccountModel userAccountModel)
+        public IActionResult PostUserAccount([FromQuery] UserAccountRequest userAccountModel)
         {
             try
             {
@@ -93,7 +93,7 @@ namespace Dotz.Programa.Fidelidade.Application.Controllers
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(typeof(GetUserAccountQueryResult), (int)StatusCodes.Status200OK)]
         [Authorize(Roles = "admin,manager")]
-        public IActionResult PutUserAccount([FromQuery] UserAccountModel userAccountModel)
+        public IActionResult PutUserAccount([FromQuery] UserAccountRequest userAccountModel)
         {
             try
             {

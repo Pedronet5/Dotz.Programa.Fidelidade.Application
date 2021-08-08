@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Dotz.Programa.Fidelidade.Domain.Models
+﻿namespace Dotz.Programa.Fidelidade.Domain.Requests
 {
-    public class AddressModel
+    public class AddressRequest
     {
         public int UserId { get; set; }
         public string Address { get; set; }

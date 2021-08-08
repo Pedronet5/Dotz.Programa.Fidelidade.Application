@@ -1,6 +1,6 @@
 ﻿using Dapper;
 using Dotz.Programa.Fidelidade.Domain.Commands;
-using Dotz.Programa.Fidelidade.Domain.Models;
+using Dotz.Programa.Fidelidade.Domain.Requests;
 using Dotz.Programa.Fidelidade.Domain.Interfaces;
 using Dotz.Programa.Fidelidade.Domain.Queries;
 using System;
@@ -41,7 +41,7 @@ namespace Dotz.Programa.Fidelidade.Infrastructure.Data.Repositories
             }
         }
 
-        public GetUserAccountQueryResult GetValidAccount(UserValidAccountModel userValidAccountCommand)
+        public GetUserAccountQueryResult GetValidAccount(UserValidAccountRequest userValidAccountCommand)
         {
             try
             {
@@ -90,7 +90,7 @@ namespace Dotz.Programa.Fidelidade.Infrastructure.Data.Repositories
             }
         }
 
-        public bool PostUserAccount(UserAccountModel userAccountDTO)
+        public bool PostUserAccount(UserAccountRequest userAccountDTO)
         {
             try
             {
@@ -108,7 +108,7 @@ namespace Dotz.Programa.Fidelidade.Infrastructure.Data.Repositories
             }
         }
 
-        public bool PutUserAccount(UserAccountModel userAccountDTO)
+        public bool PutUserAccount(UserAccountRequest userAccountDTO)
         {
             try
             {

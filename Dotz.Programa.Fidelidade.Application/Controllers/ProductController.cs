@@ -6,33 +6,58 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
+
 namespace Dotz.Programa.Fidelidade.Application.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AddressController : Controller
+    public class ProductController : Controller
     {
-        private readonly IAddressRepository _addressRepository;
-        public AddressController(IAddressRepository addressRepository)
+        private readonly IProductRepository _productRepository;
+        public ProductController(IProductRepository productRepository)
         {
-            _addressRepository = addressRepository;
+            _productRepository = productRepository;
         }
 
         [HttpGet]
-        [Route("GetAddress")]
+        [Route("GetAllProducts")]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(typeof(GetUserAccountQueryResult), (int)StatusCodes.Status200OK)]
         [Authorize(Roles = "admin,employee,manager")]
-        public IActionResult GetAddress([FromQuery] int UserId)
+        public IActionResult GetAllProducts()
         {
             try
             {
-                var result = _addressRepository.GetAddress(UserId);
+                var result = _productRepository.GetAllProduct();
 
                 if (result == null)
-                    return new NotFoundObjectResult($"Nenhum endereço encontrado para o usuário informado: {UserId}");
+                    return new NotFoundObjectResult($"Nenhum produto encontrado.");
+                else
+                    return new OkObjectResult(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("GetByProductId")]
+        [ProducesResponseType(typeof(void), (int)StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(void), (int)StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(void), (int)StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(GetUserAccountQueryResult), (int)StatusCodes.Status200OK)]
+        [Authorize(Roles = "admin,employee,manager")]
+        public IActionResult GetByProductId(int ProductId)
+        {
+            try
+            {
+                var result = _productRepository.GetByProductId(ProductId);
+
+                if (result == null)
+                    return new NotFoundObjectResult($"Nenhum produto encontrado.");
                 else
                     return new OkObjectResult(result);
             }
@@ -43,20 +68,20 @@ namespace Dotz.Programa.Fidelidade.Application.Controllers
         }
 
         [HttpPost]
-        [Route("PostAddress")]
+        [Route("PostProduct")]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status422UnprocessableEntity)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(typeof(GetAddressQueryResult), (int)StatusCodes.Status200OK)]
-        [Authorize(Roles = "admin,manager,employee")]
-        public IActionResult PostAddress([FromQuery] AddressRequest addressRequest)
+        [Authorize(Roles = "admin,manager")]
+        public IActionResult PostProduct([FromQuery] ProductRequest productModel)
         {
             try
             {
-                var result = _addressRepository.PostAddress(addressRequest);
+                var result = _productRepository.PostProduct(productModel);
 
                 if (!result)
-                    return new UnprocessableEntityObjectResult("Ocorreu um problema na gravação do endereço");
+                    return new UnprocessableEntityObjectResult("Ocorreu um problema na gravação do produto");
                 else
                     return new OkObjectResult(result);
 
@@ -68,20 +93,20 @@ namespace Dotz.Programa.Fidelidade.Application.Controllers
         }
 
         [HttpPut]
-        [Route("PutAddress")]
+        [Route("PutProduct")]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status422UnprocessableEntity)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(typeof(GetUserAccountQueryResult), (int)StatusCodes.Status200OK)]
-        [Authorize(Roles = "admin,manager,employee")]
-        public IActionResult PutAddress([FromQuery] AddressPutRequest addressPutRequest)
+        [Authorize(Roles = "admin,manager")]
+        public IActionResult PutProduct([FromQuery] ProductPutRequest productPutRequest)
         {
             try
             {
-                var result = _addressRepository.PutAddress(addressPutRequest);
+                var result = _productRepository.PutProduct(productPutRequest);
 
                 if (!result)
-                    return new UnprocessableEntityObjectResult("Ocorreu um problema na atualização do endereço");
+                    return new UnprocessableEntityObjectResult("Ocorreu um problema na atualização do produto");
                 else
                     return new OkObjectResult(result);
 
@@ -93,20 +118,20 @@ namespace Dotz.Programa.Fidelidade.Application.Controllers
         }
 
         [HttpDelete]
-        [Route("DeleteAddress")]
+        [Route("DeleteProduct")]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status422UnprocessableEntity)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(typeof(GetUserAccountQueryResult), (int)StatusCodes.Status200OK)]
-        [Authorize(Roles = "admin,manager,employee")]
-        public IActionResult DeleteAddress([FromQuery] int AddressId)
+        [Authorize(Roles = "admin,manager")]
+        public IActionResult DeleteProduct([FromQuery] int ProductId)
         {
             try
             {
-                var result = _addressRepository.DeleteAddress(AddressId);
+                var result = _productRepository.DeleteProduct(ProductId);
 
                 if (!result)
-                    return new UnprocessableEntityObjectResult("Ocorreu um problema na exclusão do endereço");
+                    return new UnprocessableEntityObjectResult("Ocorreu um problema na exclusão do produto");
                 else
                     return new OkObjectResult(result);
 

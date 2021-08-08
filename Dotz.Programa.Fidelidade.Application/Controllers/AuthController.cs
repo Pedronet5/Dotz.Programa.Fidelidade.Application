@@ -1,13 +1,8 @@
-﻿using Dotz.Programa.Fidelidade.Configurations;
-using Dotz.Programa.Fidelidade.Domain.Models;
-using Dotz.Programa.Fidelidade.Domain.Interfaces;
+﻿using Dotz.Programa.Fidelidade.Domain.Interfaces;
 using Dotz.Programa.Fidelidade.Domain.Queries;
+using Dotz.Programa.Fidelidade.Domain.Requests;
 using Dotz.Programa.Fidelidade.Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
-using System;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 
 namespace Dotz.Programa.Fidelidade.Application.Controllers
 {
@@ -22,7 +17,7 @@ namespace Dotz.Programa.Fidelidade.Application.Controllers
         }
 
         [HttpPost]
-        public ActionResult GetToken([FromBody] UserValidAccountModel userValidAccountCommand)
+        public ActionResult GetToken([FromBody] UserValidAccountRequest userValidAccountCommand)
         {
             var user = UserLogin(userValidAccountCommand);
 
@@ -34,7 +29,7 @@ namespace Dotz.Programa.Fidelidade.Application.Controllers
             return Ok(new { Token = tokenString });
         }
 
-        private GetUserAccountQueryResult UserLogin(UserValidAccountModel login)
+        private GetUserAccountQueryResult UserLogin(UserValidAccountRequest login)
         {
             var emailValido = ValidateEmailService.EmailEValido(login?.Email);
 
