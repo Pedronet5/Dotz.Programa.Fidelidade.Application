@@ -23,7 +23,7 @@ namespace Dotz.Programa.Fidelidade.Application.Controllers
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status500InternalServerError)]
-        [ProducesResponseType(typeof(GetUserAccountQueryResult), (int)StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(GetAddressQueryResult), (int)StatusCodes.Status200OK)]
         [Authorize(Roles = "admin,employee,manager")]
         public IActionResult GetAddress([FromQuery] int UserId)
         {
@@ -47,7 +47,7 @@ namespace Dotz.Programa.Fidelidade.Application.Controllers
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status422UnprocessableEntity)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status500InternalServerError)]
-        [ProducesResponseType(typeof(GetAddressQueryResult), (int)StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(bool), (int)StatusCodes.Status200OK)]
         [Authorize(Roles = "admin,manager,employee")]
         public IActionResult PostAddress([FromQuery] AddressRequest addressRequest)
         {
@@ -72,7 +72,7 @@ namespace Dotz.Programa.Fidelidade.Application.Controllers
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status422UnprocessableEntity)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status500InternalServerError)]
-        [ProducesResponseType(typeof(GetUserAccountQueryResult), (int)StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(bool), (int)StatusCodes.Status200OK)]
         [Authorize(Roles = "admin,manager,employee")]
         public IActionResult PutAddress([FromQuery] AddressPutRequest addressPutRequest)
         {
@@ -97,7 +97,7 @@ namespace Dotz.Programa.Fidelidade.Application.Controllers
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status422UnprocessableEntity)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status500InternalServerError)]
-        [ProducesResponseType(typeof(GetUserAccountQueryResult), (int)StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(bool), (int)StatusCodes.Status200OK)]
         [Authorize(Roles = "admin,manager,employee")]
         public IActionResult DeleteAddress([FromQuery] int AddressId)
         {

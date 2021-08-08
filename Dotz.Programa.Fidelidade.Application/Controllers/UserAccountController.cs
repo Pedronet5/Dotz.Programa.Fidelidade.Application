@@ -55,7 +55,7 @@ namespace Dotz.Programa.Fidelidade.Application.Controllers
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status422UnprocessableEntity)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status500InternalServerError)]
-        [ProducesResponseType(typeof(GetUserAccountQueryResult), (int)StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(bool), (int)StatusCodes.Status200OK)]
         [Authorize(Roles = "admin,manager")]
         public IActionResult PostUserAccount([FromQuery] UserAccountRequest userAccountModel)
         {
@@ -91,7 +91,7 @@ namespace Dotz.Programa.Fidelidade.Application.Controllers
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status422UnprocessableEntity)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status500InternalServerError)]
-        [ProducesResponseType(typeof(GetUserAccountQueryResult), (int)StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(bool), (int)StatusCodes.Status200OK)]
         [Authorize(Roles = "admin,manager")]
         public IActionResult PutUserAccount([FromQuery] UserAccountRequest userAccountModel)
         {
@@ -121,7 +121,7 @@ namespace Dotz.Programa.Fidelidade.Application.Controllers
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status422UnprocessableEntity)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status500InternalServerError)]
-        [ProducesResponseType(typeof(GetUserAccountQueryResult), (int)StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(bool), (int)StatusCodes.Status200OK)]
         [Authorize(Roles = "admin,manager")]
         public IActionResult DeleteUserAccount([FromQuery] string Email)
         {

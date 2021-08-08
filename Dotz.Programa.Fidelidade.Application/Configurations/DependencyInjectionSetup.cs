@@ -15,6 +15,7 @@ namespace Dotz.Programa.Fidelidade.Configurations
             services.AddTransient<IUserRepository, UserAccountRepository>();
             services.AddTransient<IAddressRepository, AddressRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IPointsTransactionRepository, PointsTransactionRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
         }

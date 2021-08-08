@@ -24,7 +24,7 @@ namespace Dotz.Programa.Fidelidade.Application.Controllers
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status500InternalServerError)]
-        [ProducesResponseType(typeof(GetUserAccountQueryResult), (int)StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(GetProductQueryResult), (int)StatusCodes.Status200OK)]
         [Authorize(Roles = "admin,employee,manager")]
         public IActionResult GetAllProducts()
         {
@@ -48,7 +48,7 @@ namespace Dotz.Programa.Fidelidade.Application.Controllers
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status500InternalServerError)]
-        [ProducesResponseType(typeof(GetUserAccountQueryResult), (int)StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(GetProductQueryResult), (int)StatusCodes.Status200OK)]
         [Authorize(Roles = "admin,employee,manager")]
         public IActionResult GetByProductId(int ProductId)
         {
@@ -72,7 +72,7 @@ namespace Dotz.Programa.Fidelidade.Application.Controllers
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status422UnprocessableEntity)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status500InternalServerError)]
-        [ProducesResponseType(typeof(GetAddressQueryResult), (int)StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(bool), (int)StatusCodes.Status200OK)]
         [Authorize(Roles = "admin,manager")]
         public IActionResult PostProduct([FromQuery] ProductRequest productModel)
         {
@@ -97,7 +97,7 @@ namespace Dotz.Programa.Fidelidade.Application.Controllers
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status422UnprocessableEntity)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status500InternalServerError)]
-        [ProducesResponseType(typeof(GetUserAccountQueryResult), (int)StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(bool), (int)StatusCodes.Status200OK)]
         [Authorize(Roles = "admin,manager")]
         public IActionResult PutProduct([FromQuery] ProductPutRequest productPutRequest)
         {
@@ -122,7 +122,7 @@ namespace Dotz.Programa.Fidelidade.Application.Controllers
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status422UnprocessableEntity)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status500InternalServerError)]
-        [ProducesResponseType(typeof(GetUserAccountQueryResult), (int)StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(bool), (int)StatusCodes.Status200OK)]
         [Authorize(Roles = "admin,manager")]
         public IActionResult DeleteProduct([FromQuery] int ProductId)
         {

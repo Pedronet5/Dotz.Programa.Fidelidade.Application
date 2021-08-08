@@ -54,7 +54,7 @@ namespace Dotz.Programa.Fidelidade.Infrastructure.Data.Repositories
             }
         }
 
-        public bool PostProduct(ProductRequest productModel)
+        public bool PostProduct(ProductRequest product)
         {
             try
             {
@@ -62,9 +62,9 @@ namespace Dotz.Programa.Fidelidade.Infrastructure.Data.Repositories
                                VALUES (@Name, @Valor, @CategoryId, sysdate(3))";
 
                 var parameters = new DynamicParameters();
-                parameters.Add("@Name", productModel.Name);
-                parameters.Add("@Valor", productModel.Valor);
-                parameters.Add("@CategoryId", productModel.CategoryId);
+                parameters.Add("@Name", product.Name);
+                parameters.Add("@Valor", product.Valor);
+                parameters.Add("@CategoryId", product.CategoryId);
 
                 _unitOfWork.Connection.Query(query, parameters, commandType: CommandType.Text);
 
