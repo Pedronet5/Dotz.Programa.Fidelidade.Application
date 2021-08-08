@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dotz.Programa.Fidelidade.Application", "Dotz.Programa.Fidelidade.Application\Dotz.Programa.Fidelidade.Application.csproj", "{990FC646-C8CE-427E-8A2C-C97F62ED4B08}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dotz.Programa.Fidelidade.Domain", "Dotz.Programa.Fidelidade.Domain\Dotz.Programa.Fidelidade.Domain.csproj", "{64F8A804-0C29-4744-8385-93D0E0C33925}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dotz.Programa.Fidelidade.Infrastructure", "Dotz.Programa.Fidelidade.Infrastructure\Dotz.Programa.Fidelidade.Infrastructure.csproj", "{92DD3DC8-6CB0-48BA-8EEF-8158B6C3BBE7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dotz.Programa.Fidelidade.Tests", "Dotz.Programa.Fidelidade.Tests\Dotz.Programa.Fidelidade.Tests.csproj", "{58F4C0BA-93BD-461F-B295-CEA7328C7CCD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{DFB2ED98-7F8D-47AF-9156-5B8AE928D78F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{1B6071DB-7F2B-44FD-AC4E-0AD72B83EC8E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5CDAD7EC-41BC-403B-A692-B7C7C6E98803}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{990FC646-C8CE-427E-8A2C-C97F62ED4B08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{990FC646-C8CE-427E-8A2C-C97F62ED4B08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{990FC646-C8CE-427E-8A2C-C97F62ED4B08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{990FC646-C8CE-427E-8A2C-C97F62ED4B08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64F8A804-0C29-4744-8385-93D0E0C33925}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64F8A804-0C29-4744-8385-93D0E0C33925}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64F8A804-0C29-4744-8385-93D0E0C33925}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64F8A804-0C29-4744-8385-93D0E0C33925}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92DD3DC8-6CB0-48BA-8EEF-8158B6C3BBE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92DD3DC8-6CB0-48BA-8EEF-8158B6C3BBE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92DD3DC8-6CB0-48BA-8EEF-8158B6C3BBE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92DD3DC8-6CB0-48BA-8EEF-8158B6C3BBE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58F4C0BA-93BD-461F-B295-CEA7328C7CCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58F4C0BA-93BD-461F-B295-CEA7328C7CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58F4C0BA-93BD-461F-B295-CEA7328C7CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58F4C0BA-93BD-461F-B295-CEA7328C7CCD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{990FC646-C8CE-427E-8A2C-C97F62ED4B08} = {DFB2ED98-7F8D-47AF-9156-5B8AE928D78F}
+		{64F8A804-0C29-4744-8385-93D0E0C33925} = {1B6071DB-7F2B-44FD-AC4E-0AD72B83EC8E}
+		{92DD3DC8-6CB0-48BA-8EEF-8158B6C3BBE7} = {1B6071DB-7F2B-44FD-AC4E-0AD72B83EC8E}
+		{58F4C0BA-93BD-461F-B295-CEA7328C7CCD} = {5CDAD7EC-41BC-403B-A692-B7C7C6E98803}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D41B006D-F57E-4737-8150-341B33646D3B}
+	EndGlobalSection
+EndGlobal
