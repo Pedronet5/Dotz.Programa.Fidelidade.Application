@@ -1,0 +1,1112 @@
+{
+	"info": {
+		"_postman_id": "2002a0dc-327b-4995-a09c-ac55becb67e3",
+		"name": "Dotz",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "PostAuthToken",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"pedronet5@gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44322/api/Auth",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserAccount",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://localhost:44322/api/UserAccount/GetUserAccount?Email=matheus@gmail.com",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"UserAccount",
+								"GetUserAccount"
+							],
+							"query": [
+								{
+									"key": "Email",
+									"value": "matheus@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostUserAccount",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/UserAccount/PostUserAccount?Name=Matheus&Email=matheus@gmail.com&Password=3344&Role=user",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"UserAccount",
+								"PostUserAccount"
+							],
+							"query": [
+								{
+									"key": "Name",
+									"value": "Matheus"
+								},
+								{
+									"key": "Email",
+									"value": "matheus@gmail.com"
+								},
+								{
+									"key": "Password",
+									"value": "3344"
+								},
+								{
+									"key": "Role",
+									"value": "user"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutUserAccount",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/UserAccount/PutUserAccount?Name=Matheus Henrique&Email=matheus@gmail.com&Password=1234562e2e&Role=user",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"UserAccount",
+								"PutUserAccount"
+							],
+							"query": [
+								{
+									"key": "Name",
+									"value": "Matheus Henrique"
+								},
+								{
+									"key": "Email",
+									"value": "matheus@gmail.com"
+								},
+								{
+									"key": "Password",
+									"value": "1234562e2e"
+								},
+								{
+									"key": "Role",
+									"value": "user"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUserAccount",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/UserAccount/DeleteUserAccount?Email=matheus@gmail.com",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"UserAccount",
+								"DeleteUserAccount"
+							],
+							"query": [
+								{
+									"key": "Email",
+									"value": "matheus@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Address",
+			"item": [
+				{
+					"name": "PostAddress",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/Address/PostAddress?UserId=17&Address=Rua Francisco Fernandes Netto&Number=79&City=Jundiaí&District=Jardim Carlos Gomes&State=SP&Cep=13203-542",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Address",
+								"PostAddress"
+							],
+							"query": [
+								{
+									"key": "UserId",
+									"value": "17"
+								},
+								{
+									"key": "Address",
+									"value": "Rua Francisco Fernandes Netto"
+								},
+								{
+									"key": "Number",
+									"value": "79"
+								},
+								{
+									"key": "City",
+									"value": "Jundiaí"
+								},
+								{
+									"key": "District",
+									"value": "Jardim Carlos Gomes"
+								},
+								{
+									"key": "State",
+									"value": "SP"
+								},
+								{
+									"key": "Cep",
+									"value": "13203-542"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAddress",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/Address/GetAddress?UserId=17",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Address",
+								"GetAddress"
+							],
+							"query": [
+								{
+									"key": "UserId",
+									"value": "17"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutAddress",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/Address/PutAddress?Id=15&UserId=17&Address=Rua joão maranhão 2&Number=123&City=Itu&District=District 2&State=SP&Cep=13859-234",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Address",
+								"PutAddress"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "15"
+								},
+								{
+									"key": "UserId",
+									"value": "17"
+								},
+								{
+									"key": "Address",
+									"value": "Rua joão maranhão 2"
+								},
+								{
+									"key": "Number",
+									"value": "123"
+								},
+								{
+									"key": "City",
+									"value": "Itu"
+								},
+								{
+									"key": "District",
+									"value": "District 2"
+								},
+								{
+									"key": "State",
+									"value": "SP"
+								},
+								{
+									"key": "Cep",
+									"value": "13859-234"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteAddress",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/Address/DeleteAddress?AddressId=15",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Address",
+								"DeleteAddress"
+							],
+							"query": [
+								{
+									"key": "AddressId",
+									"value": "15"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "GetAllProducts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/Product/GetAllProducts",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Product",
+								"GetAllProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/Product/PostProduct?Name=Veloses e Furiosos 8&Valor=50&CategoryId=2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Product",
+								"PostProduct"
+							],
+							"query": [
+								{
+									"key": "Name",
+									"value": "Veloses e Furiosos 8"
+								},
+								{
+									"key": "Valor",
+									"value": "50"
+								},
+								{
+									"key": "CategoryId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByProductId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/Product/GetByProductId?ProductId=1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Product",
+								"GetByProductId"
+							],
+							"query": [
+								{
+									"key": "ProductId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/Product/PutProduct?Id=9&Name=Veloses e Furiosos 8&Valor=60&CategoryId=2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Product",
+								"PutProduct"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "9"
+								},
+								{
+									"key": "Name",
+									"value": "Veloses e Furiosos 8"
+								},
+								{
+									"key": "Valor",
+									"value": "60"
+								},
+								{
+									"key": "CategoryId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/Product/DeleteProduct?ProductId=9",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Product",
+								"DeleteProduct"
+							],
+							"query": [
+								{
+									"key": "ProductId",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Points Transation",
+			"item": [
+				{
+					"name": "GetExtractByUserId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/PointsTransation/GetExtractByUserId?UserId=17",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"PointsTransation",
+								"GetExtractByUserId"
+							],
+							"query": [
+								{
+									"key": "UserId",
+									"value": "17"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetBalanceAccountByUserId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/PointsTransation/GetBalanceAccountByUserId?UserId=17",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"PointsTransation",
+								"GetBalanceAccountByUserId"
+							],
+							"query": [
+								{
+									"key": "UserId",
+									"value": "17"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/PointsTransation/PostProduct?UserId=17&CompanyId=2&Value=1000&Description=Créditos de pontos adquiridos no abastecimento de veiculos ",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"PointsTransation",
+								"PostProduct"
+							],
+							"query": [
+								{
+									"key": "UserId",
+									"value": "17"
+								},
+								{
+									"key": "CompanyId",
+									"value": "2"
+								},
+								{
+									"key": "Value",
+									"value": "1000"
+								},
+								{
+									"key": "Description",
+									"value": "Créditos de pontos adquiridos no abastecimento de veiculos "
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "GetCategory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/Category/GetCategory?categoryId=1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Category",
+								"GetCategory"
+							],
+							"query": [
+								{
+									"key": "categoryId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostCategory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/Category/PostCategory?Name=Cosméticos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Category",
+								"PostCategory"
+							],
+							"query": [
+								{
+									"key": "Name",
+									"value": "Cosméticos"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutCategory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/Category/PutCategory?Id=6&Name=Cosméticos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Category",
+								"PutCategory"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "6"
+								},
+								{
+									"key": "Name",
+									"value": "Cosméticos"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCategory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/Category/DeleteCategory?CategoryId=6",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Category",
+								"DeleteCategory"
+							],
+							"query": [
+								{
+									"key": "CategoryId",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllCategory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/Category/GetAllCategory",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Category",
+								"GetAllCategory"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Exchange",
+			"item": [
+				{
+					"name": "GetExchangeListing",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/Exchange/GetExchangeListing?userId=17",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Exchange",
+								"GetExchangeListing"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "17"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostExchange",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": 17,\r\n  \"companyId\": 1,\r\n   \"addressId\": 14,\r\n  \"productsIds\": [\r\n    4\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44322/api/Exchange/PostExchange",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Exchange",
+								"PostExchange"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOrderListingExchange",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/Exchange/GetOrderListingExchange?ExchangeId=6",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Exchange",
+								"GetOrderListingExchange"
+							],
+							"query": [
+								{
+									"key": "ExchangeId",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetExchangesByUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvIEhlbnJpcXVlIExlaXRlIGRlIENhbWFyZ28iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE2Mjg0NzA1NTUsImV4cCI6MTYyODQ3Nzc1NSwiaWF0IjoxNjI4NDcwNTU1fQ.oQHt1rylLdD5elfLjU5YDD-Gasn_5E4kV2Xlb31iIE4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/Exchange/GetExchangesByUser?userId=17",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"Exchange",
+								"GetExchangesByUser"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "17"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
