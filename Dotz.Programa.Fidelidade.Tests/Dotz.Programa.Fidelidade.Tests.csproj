@@ -13,4 +13,8 @@
     <PackageReference Include="coverlet.collector" Version="3.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Dotz.Programa.Fidelidade.Infrastructure\Dotz.Programa.Fidelidade.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
