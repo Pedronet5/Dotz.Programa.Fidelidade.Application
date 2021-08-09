@@ -73,6 +73,24 @@ namespace Dotz.Programa.Fidelidade.Infrastructure.Data.Repositories
             }
         }
 
+        public float GetProductValue(int ProductId)
+        {
+            try
+            {
+                var query = @"SELECT valor AS Valor
+                              FROM product
+                              WHERE id = @Id";
+
+                var entity = _unitOfWork.Connection.QueryFirst<float>(query, new { Id = ProductId }, commandType: CommandType.Text);
+
+                return entity;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public bool PostProduct(ProductRequest product)
         {
             try

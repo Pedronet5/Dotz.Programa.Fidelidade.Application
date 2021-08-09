@@ -80,5 +80,24 @@ namespace Dotz.Programa.Fidelidade.Infrastructure.Data.Repositories
             }
         }
 
+        public IEnumerable<GetExchangeByUserQueryResult> GetExchangeByUserId(int UserId)
+        {
+            try
+            {
+                var query = @"SELECT id AS Id, userid AS UserId, companyid AS CompanyId, addressid As AddressId,
+                              deliverystatus AS DeliveryStatus, exchangedate AS ExchangeDate
+                              FROM exchange
+                              WHERE userid = @Userid
+                              ORDER BY id ASC";
+
+                var entity = _unitOfWork.Connection.Query<GetExchangeByUserQueryResult>(query, new { UserId = UserId }, commandType: CommandType.Text);
+
+                return entity;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

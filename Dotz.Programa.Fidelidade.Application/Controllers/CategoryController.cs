@@ -42,6 +42,30 @@ namespace Dotz.Programa.Fidelidade.Application.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("GetAllCategory")]
+        [ProducesResponseType(typeof(void), (int)StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(void), (int)StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(void), (int)StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(GetCategoryQueryResult), (int)StatusCodes.Status200OK)]
+        [Authorize(Roles = "admin,employee,manager")]
+        public IActionResult GetAllCategory()
+        {
+            try
+            {
+                var result = _categoryRepository.GetAllCategory();
+
+                if (result == null)
+                    return new NotFoundObjectResult($"Nenhuma categoria encontrada");
+                else
+                    return new OkObjectResult(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
         [HttpPost]
         [Route("PostCategory")]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status422UnprocessableEntity)]

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-
+using Dotz.Programa.Fidelidade.Domain.Enums;
 
 namespace Dotz.Programa.Fidelidade.Application.Controllers
 {
@@ -56,6 +56,30 @@ namespace Dotz.Programa.Fidelidade.Application.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("GetExchangesByUser")]
+        [ProducesResponseType(typeof(void), (int)StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(void), (int)StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(void), (int)StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(GetExchangeByUserQueryResult), (int)StatusCodes.Status200OK)]
+        [Authorize(Roles = "admin,employee,manager")]
+        public IActionResult GetExchangesByUser([FromQuery] int userId)
+        {
+            try
+            {
+                var result = _exchangeRepository.GetExchangeByUserId(userId);
+
+                if (result == null)
+                    return new NotFoundObjectResult($"Nenhuma exchange encontrada para o usuário informado: {userId}");
+                else
+                    return new OkObjectResult(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
         [HttpPost]
         [Route("PostExchange")]
         [ProducesResponseType(typeof(void), (int)StatusCodes.Status422UnprocessableEntity)]
@@ -70,9 +94,28 @@ namespace Dotz.Programa.Fidelidade.Application.Controllers
                 var result = _exchangeRepository.PostExchange(exchangeRequest);
 
                 if (!result)
+                {
                     return new UnprocessableEntityObjectResult("Ocorreu um problema na gravação da troca");
+                }
                 else
+                {
+                    float valor = 0;
+                    string produtos = "";
+                    foreach (var item in exchangeRequest.ProductsIds)
+                    {
+                        valor += _productRepository.GetProductValue(item);
+                        produtos += item + ", ";
+                    }
+
+                    PointsTransationRequest pointsTransationRequest = new PointsTransationRequest();
+                    pointsTransationRequest.UserId = exchangeRequest.UserId;
+                    pointsTransationRequest.CompanyId = exchangeRequest.CompanyId;
+                    pointsTransationRequest.Value = valor;
+                    pointsTransationRequest.Description = $"Débito referente a troca dos produtos: {produtos.Remove(produtos.Length -1)}";
+
+                    _pointsTransactionRepository.PostPointsTransation(pointsTransationRequest, EOperationType.Debito);
                     return new OkObjectResult(result);
+                }
 
             }
             catch (Exception ex)

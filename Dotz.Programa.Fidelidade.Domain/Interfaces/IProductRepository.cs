@@ -12,6 +12,7 @@ namespace Dotz.Programa.Fidelidade.Domain.Interfaces
         bool DeleteProduct(int ProductId);
         bool PutProduct(ProductPutRequest productPutRequest);
         IEnumerable<GetProductQueryResult> GetProductsExchangeListing(float Userbalance);
+        float GetProductValue(int ProductId);
 
     }
 }

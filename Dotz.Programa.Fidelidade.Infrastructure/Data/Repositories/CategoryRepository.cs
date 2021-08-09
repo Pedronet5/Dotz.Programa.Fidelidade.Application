@@ -3,6 +3,7 @@ using Dotz.Programa.Fidelidade.Domain.Interfaces;
 using Dotz.Programa.Fidelidade.Domain.Queries;
 using Dotz.Programa.Fidelidade.Domain.Requests;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
@@ -33,6 +34,25 @@ namespace Dotz.Programa.Fidelidade.Infrastructure.Data.Repositories
                 throw;
             }
         }
+
+        public IEnumerable<GetCategoryQueryResult> GetAllCategory()
+        {
+            try
+            {
+                var query = $@"SELECT id AS Id, name AS Name
+                               From category
+                               ORDER BY id ASC";
+
+                var entity = _unitOfWork.Connection.Query<GetCategoryQueryResult>(query, null, commandType: CommandType.Text);
+
+                return entity;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
 
         public bool PostCategory(CategoryRequest categoryRequest)
         {
