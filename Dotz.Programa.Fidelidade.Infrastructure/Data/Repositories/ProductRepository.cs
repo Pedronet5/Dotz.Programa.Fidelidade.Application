@@ -35,6 +35,25 @@ namespace Dotz.Programa.Fidelidade.Infrastructure.Data.Repositories
             }
         }
 
+        public IEnumerable<GetProductQueryResult> GetProductsExchangeListing(float Userbalance)
+        {
+            try
+            {
+                var query = @"SELECT id AS Id, name AS Name, valor AS Valor, categoryid As CategoryId
+                              FROM product
+                                WHERE valor <= @Userbalance  
+                              ORDER BY id ASC";
+
+                var entity = _unitOfWork.Connection.Query<GetProductQueryResult>(query, new { Userbalance = Userbalance }, commandType: CommandType.Text);
+
+                return entity;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public GetProductQueryResult GetByProductId(int ProductId)
         {
             try

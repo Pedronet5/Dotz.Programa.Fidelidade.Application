@@ -40,7 +40,7 @@ namespace Dotz.Programa.Fidelidade.Infrastructure.Data.Repositories
         {
             try
             {
-                var query = @"SELECT SUM(valuetransaction) AS 'balance' FROM (
+                var query = @"SELECT SUM(COALESCE(valuetransaction, 0)) AS 'balance' FROM (
                                 SELECT SUM(value) AS 'valuetransaction' FROM dotz.pointstransation
                                 WHERE operationtype = 'C'
                                 AND userid = @UserId
